@@ -1,0 +1,72 @@
+---
+title: Personal Website 2022 — Learning Process
+excerpt:
+  'Process and takeaways from designing and developing the 2022 version of my
+  personal website.'
+coverImage: '/img/posts/personal-website-2022/website.png'
+date: '2022-03-22T19:59:00.000'
+ogImage:
+  url: '/img/posts/personal-website-2022/website.png'
+words: 413
+---
+
+![Screenshot of my 2022 website](/img/posts/personal-website-2022/website.png)
+[View my old website here!](https://2022.bellalee.com)
+
+## Process
+
+I started with a mockup of my website using Figma. I knew that I wanted it to
+have a pencil-sketched quality to it, as I've been especially into the work of
+artist [@914.001](https://www.instagram.com/914.001/) on Instagram lately.
+
+![Example of 914.001's work](/img/posts/personal-website-2022/914001.png)
+
+I spent an afternoon sketching out images of things I liked. I use a bee as my
+logo because if you remove the middle of my name, that's what you get: (B)ella
+L(ee)! Hahaha...
+
+After I finished prototyping, I started to work on coding the components. I
+must've spent at least 8 hours trying to figure out how to get my assets to
+animate as I scrolled down the page, but I think it was worth it, and it's my
+favorite part of my website. The next most difficult component to build was
+probably the carousel. I spent a long time figuring out how to wrap the
+elements, but decided to just forgo that in the end. I scrapped the feature, but
+I still learned a lot from trying to figure it out.
+
+In between creating each component and page, I brushed up on my React skills
+with Stephen Grider's _Modern React With Redux_ course on Udemy. It was a lot of
+conent to go through in 3 days, but I also learned a lot of skills that I
+applied to this project immediately.
+
+It took me about a week to get my website to a satisfactory state, but I did end
+up continuously making small improvements to it.
+
+My website used to look like this in 2020:
+![My old website](/img/posts/personal-website-2022/old-design.png)
+
+## Inspiration
+
+### [Design by Roka](https://www.designbyroka.com/)
+
+Shawn Park's website is the prettiest website I've ever seen. Though my skill
+level is nowhere near his yet, his website really inspired me to create a
+delightful user experience through animations and smooth transitions.
+
+### [Bruno Givotovsky](https://www.brunog.design/)
+
+I love the way that Bruno Givotovsky's organizes his project pages in his
+portfolio website! Though my process is not as well documented as his, the way
+this page is structured is _very_ loosely inspired by his work. Maybe some day
+it will look as nice as his!
+
+## Learning Outcomes
+
+Through this project, I learned:
+
+- React.js + Sass
+- How to create re-usable components
+- More advanced and efficient DOM navigation
+- How to factor out code redundancy on a larger scale
+- What to consider when designing UX from scratch
+- CSS animation
+- Fun Javascript tricks I didn't get to learn in class.
