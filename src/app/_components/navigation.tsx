@@ -16,6 +16,9 @@ export default function Navigation() {
         <li>
           <Link href="/blog">blog</Link>
         </li>
+        <li>
+            <a href="https://garden.bellalee.com">digital garden</a>
+        </li>
       </ul>
     </nav>
   );

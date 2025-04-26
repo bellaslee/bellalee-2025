@@ -26,7 +26,7 @@ body {
 }
 
 main {
-  @apply flex flex-col justify-center p-8 overflow-hidden;
+  @apply flex flex-col justify-center p-8;
 }
 
 h1 {
@@ -37,12 +37,20 @@ h2 {
   @apply text-4xl mb-12;
 }
 
+h2.title {
+  @apply text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-tight md:leading-none mb-12 mt-12;
+}
+
 h3 {
   @apply text-2xl mb-3 leading-snug;
 }
 
 h3.big {
   @apply mb-4 text-4xl lg:text-6xl leading-tight;
+}
+
+h4 {
+  @apply text-xl mb-3 leading-snug font-bold;
 }
 
 nav ul {
@@ -53,5 +61,25 @@ p,
 ul,
 ol,
 blockquote {
-  @apply my-6;
+  @apply mb-6;
+}
+
+ol {
+  @apply list-outside list-decimal pl-8 md:pl-12;
+}
+
+ul {
+  @apply list-outside list-disc pl-8 md:pl-12;
+}
+
+p a {
+  @apply text-red-400;
+}
+
+section img {
+  @apply py-2;
+}
+
+.project-info p {
+  @apply my-3;
 }
