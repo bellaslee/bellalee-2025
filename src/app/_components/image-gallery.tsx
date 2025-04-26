@@ -45,6 +45,13 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
 
+  // Track drag start position to calculate distance moved
+  const [dragStartPosition, setDragStartPosition] = useState({ x: 0, y: 0 });
+  const [wasDragged, setWasDragged] = useState(false);
+
+  // Minimum distance to consider as a drag rather than a click (in pixels)
+  const dragThreshold = 5;
+
   // Spotlight state
   const [spotlightImage, setSpotlightImage] = useState<PositionedImage | null>(
     null
@@ -79,10 +86,22 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     const handleMouseMove = (e: MouseEvent) => {
       if (isDragging && containerRef.current) {
         const containerRect = containerRef.current.getBoundingClientRect();
+        const newX = e.clientX - containerRect.left;
+        const newY = e.clientY - containerRect.top;
+
         setMousePosition({
-          x: e.clientX - containerRect.left,
-          y: e.clientY - containerRect.top,
+          x: newX,
+          y: newY,
         });
+
+        // Check if we've moved beyond the drag threshold
+        const deltaX = newX - dragStartPosition.x;
+        const deltaY = newY - dragStartPosition.y;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+        if (distance > dragThreshold && !wasDragged) {
+          setWasDragged(true);
+        }
       }
     };
 
@@ -107,8 +126,14 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
           );
         }
 
+        setIsDragging(false);
         setDraggedImage(null);
         setDraggedImageIndex(null);
+
+        // Reset wasDragged after a short delay to allow click events to process
+        setTimeout(() => {
+          setWasDragged(false);
+        }, 50);
       }
     };
 
@@ -135,6 +160,8 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     dragOffset,
     mousePosition,
     spotlightImage,
+    dragStartPosition,
+    wasDragged,
   ]);
 
   const generateScatteredLayout = () => {
@@ -235,14 +262,23 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     });
 
     // Set initial mouse position
+    const initialX = e.clientX - containerRect.left;
+    const initialY = e.clientY - containerRect.top;
+
     setMousePosition({
-      x: e.clientX - containerRect.left,
-      y: e.clientY - containerRect.top,
+      x: initialX,
+      y: initialY,
+    });
+
+    setDragStartPosition({
+      x: initialX,
+      y: initialY,
     });
 
     setDraggedImage(id);
     setDraggedImageIndex(index);
     setIsDragging(true);
+    setWasDragged(false);
 
     // Update z-index to bring the dragged image to the front
     setPositionedImages((prevImages) => {
@@ -264,13 +300,17 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   };
 
   const handleImageClick = (image: PositionedImage, e: React.MouseEvent) => {
-    // Only handle click if not dragging
-    if (!isDragging) {
+    // Only handle click if not dragging or if the drag distance was very small
+    if (!wasDragged) {
       e.preventDefault();
-
       if (image.link) {
-        // If image has a link, navigate to it
-        router.push(image.link);
+        if (isExternalUrl(image.link)) {
+          // For external links, open in a new tab
+          window.open(image.link, '_blank', 'noopener,noreferrer');
+        } else {
+          // For internal links, use Next.js router
+          router.push(image.link);
+        }
       } else {
         // If image doesn't have a link, open spotlight
         setSpotlightImage(image);
@@ -390,7 +430,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
             sizes="95vw"
           />
 
-          <div className="absolute bottom-6 left-2 right-0 bg-black bg-opacity-70 text-white">
+          <div className="absolute bottom-0 left-6 right-0 bg-black bg-opacity-70 text-white">
             <p>{spotlightImage.alt}</p>
           </div>
         </div>
