@@ -72,6 +72,7 @@ ul {
   @apply list-outside list-disc pl-8 md:pl-12;
 }
 
+nav a:hover,
 p a {
   @apply text-red-400;
 }
