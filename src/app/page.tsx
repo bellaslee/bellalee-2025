@@ -28,6 +28,7 @@ const galleryImages = [
     id: 8,
     src: '/img/posts/datathon-2023/thumbnail.jpeg',
     alt: 'Preview image for datathon project.',
+    link: '/blog/datathon-2023',
     width: 400,
     height: 250,
   },
