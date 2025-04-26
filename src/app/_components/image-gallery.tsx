@@ -41,16 +41,9 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   );
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
-  // Track mouse/touch position for dragging
-  const [pointerPosition, setPointerPosition] = useState({ x: 0, y: 0 });
+  // Track mouse position for dragging
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-
-  // Track drag start position to calculate distance moved
-  const [dragStartPosition, setDragStartPosition] = useState({ x: 0, y: 0 });
-  const [wasDragged, setWasDragged] = useState(false);
-
-  // Minimum distance to consider as a drag rather than a click (in pixels)
-  const dragThreshold = 5;
 
   // Spotlight state
   const [spotlightImage, setSpotlightImage] = useState<PositionedImage | null>(
@@ -81,31 +74,19 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     }
   }, [containerSize, images]);
 
-  // Track pointer movement for dragging (mouse and touch)
+  // Track mouse movement for dragging
   useEffect(() => {
-    const handlePointerMove = (e: PointerEvent) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (isDragging && containerRef.current) {
         const containerRect = containerRef.current.getBoundingClientRect();
-        const newX = e.clientX - containerRect.left;
-        const newY = e.clientY - containerRect.top;
-
-        setPointerPosition({
-          x: newX,
-          y: newY,
+        setMousePosition({
+          x: e.clientX - containerRect.left,
+          y: e.clientY - containerRect.top,
         });
-
-        // Check if we've moved beyond the drag threshold
-        const deltaX = newX - dragStartPosition.x;
-        const deltaY = newY - dragStartPosition.y;
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-        if (distance > dragThreshold && !wasDragged) {
-          setWasDragged(true);
-        }
       }
     };
 
-    const handlePointerUp = (e: PointerEvent) => {
+    const handleMouseUp = () => {
       if (isDragging) {
         setIsDragging(false);
 
@@ -117,8 +98,8 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 ? {
                     ...img,
                     position: {
-                      x: pointerPosition.x - dragOffset.x,
-                      y: pointerPosition.y - dragOffset.y,
+                      x: mousePosition.x - dragOffset.x,
+                      y: mousePosition.y - dragOffset.y,
                     },
                   }
                 : img
@@ -126,14 +107,8 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
           );
         }
 
-        setIsDragging(false);
         setDraggedImage(null);
         setDraggedImageIndex(null);
-
-        // Reset wasDragged after a short delay to allow click events to process
-        setTimeout(() => {
-          setWasDragged(false);
-        }, 50);
       }
     };
 
@@ -144,13 +119,13 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
       }
     };
 
-    document.addEventListener('pointermove', handlePointerMove);
-    document.addEventListener('pointerup', handlePointerUp);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
     document.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.removeEventListener('pointermove', handlePointerMove);
-      document.removeEventListener('pointerup', handlePointerUp);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [
@@ -158,10 +133,8 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     draggedImage,
     draggedImageIndex,
     dragOffset,
-    pointerPosition,
+    mousePosition,
     spotlightImage,
-    dragStartPosition,
-    wasDragged,
   ]);
 
   const generateScatteredLayout = () => {
@@ -200,8 +173,14 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         const baseY = row * cellHeight + cellHeight / 2;
 
         // Add randomness - up to 40% of cell size in any direction
-        const randomX = baseX + (Math.random() * 0.8 - 0.4) * cellWidth;
-        const randomY = baseY + (Math.random() * 0.8 - 0.4) * cellHeight;
+        const randomX =
+          width < 640
+            ? baseX + (Math.random() * 0.2 - 0.1) * cellWidth
+            : baseX + (Math.random() * 0.8 - 0.4) * cellWidth;
+        const randomY =
+          width < 640
+            ? baseY + (Math.random() * 0.4 - 0.2) * cellHeight
+            : baseY + (Math.random() * 0.8 - 0.4) * cellHeight;
 
         // Random rotation between -10 and 10 degrees
         const rotation = Math.random() * 20 - 10;
@@ -235,22 +214,13 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     setPositionedImages(newPositionedImages);
   };
 
-  const handlePointerDown = (
-    e: React.PointerEvent,
-    id: number,
-    index: number
-  ) => {
+  const handleMouseDown = (e: React.MouseEvent, id: number, index: number) => {
     // Don't start dragging if we're in spotlight mode
     if (spotlightImage) return;
 
     e.preventDefault();
 
-    // Set touch action to none to prevent browser handling
-    if (e.currentTarget) {
-      (e.currentTarget as HTMLElement).style.touchAction = 'none';
-    }
-
-    // Calculate offset from pointer position to image top-left corner
+    // Calculate offset from mouse position to image top-left corner
     const rect = e.currentTarget.getBoundingClientRect();
     const containerRect = containerRef.current?.getBoundingClientRect();
 
@@ -264,25 +234,15 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
       y: offsetY,
     });
 
-    // Set initial pointer position
-    const initialX = e.clientX - containerRect.left;
-    const initialY = e.clientY - containerRect.top;
-
-    setPointerPosition({
-      x: initialX,
-      y: initialY,
-    });
-
-    // Record the start position for distance calculation
-    setDragStartPosition({
-      x: initialX,
-      y: initialY,
+    // Set initial mouse position
+    setMousePosition({
+      x: e.clientX - containerRect.left,
+      y: e.clientY - containerRect.top,
     });
 
     setDraggedImage(id);
     setDraggedImageIndex(index);
     setIsDragging(true);
-    setWasDragged(false);
 
     // Update z-index to bring the dragged image to the front
     setPositionedImages((prevImages) => {
@@ -304,18 +264,13 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   };
 
   const handleImageClick = (image: PositionedImage, e: React.MouseEvent) => {
-    // Only handle click if not dragging or if the drag distance was very small
-    if (!wasDragged) {
+    // Only handle click if not dragging
+    if (!isDragging) {
       e.preventDefault();
 
       if (image.link) {
-        if (isExternalUrl(image.link)) {
-          // For external links, open in a new tab
-          window.open(image.link, '_blank', 'noopener,noreferrer');
-        } else {
-          // For internal links, use Next.js router
-          router.push(image.link);
-        }
+        // If image has a link, navigate to it
+        router.push(image.link);
       } else {
         // If image doesn't have a link, open spotlight
         setSpotlightImage(image);
@@ -347,7 +302,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         return (
           <div
             key={image.id}
-            onPointerDown={(e) => handlePointerDown(e, image.id, index)}
+            onMouseDown={(e) => handleMouseDown(e, image.id, index)}
             onClick={(e) => handleImageClick(image, e)}
             className={`absolute touch-none ${
               !isDragging ? 'transition-shadow' : ''
@@ -387,8 +342,8 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         <div
           className="absolute pointer-events-none"
           style={{
-            left: `${pointerPosition.x - dragOffset.x}px`,
-            top: `${pointerPosition.y - dragOffset.y}px`,
+            left: `${mousePosition.x - dragOffset.x}px`,
+            top: `${mousePosition.y - dragOffset.y}px`,
             zIndex: 9999,
             transform: `rotate(${positionedImages[draggedImageIndex].rotation}deg)`,
             transformOrigin: 'center center',
