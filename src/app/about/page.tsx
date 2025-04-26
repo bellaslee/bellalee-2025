@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main>
       <Navigation />
-      <div className="w-1/2 mt-20">
+      <div className="md:w-1/2 mt-20">
         <h2>Hi, I'm Bella! I'm a consultant, designer, artist, and writer.</h2>
         <p>
           My dream is to make information more intuitive, accessible, and
