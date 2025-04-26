@@ -201,16 +201,14 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
 
         // Add randomness - up to 40% of cell size in any direction
         const randomX =
-          width < 640
-            ? baseX + (Math.random() * 0.2 - 0.1) * cellWidth
-            : baseX + (Math.random() * 0.8 - 0.4) * cellWidth;
+          width < 640 ? baseX : baseX + (Math.random() * 0.8 - 0.4) * cellWidth;
         const randomY =
           width < 640
-            ? baseY + (Math.random() * 0.4 - 0.2) * cellHeight
+            ? baseY
             : baseY + (Math.random() * 0.8 - 0.4) * cellHeight;
 
         // Random rotation between -10 and 10 degrees
-        const rotation = Math.random() * 20 - 10;
+        const rotation = width < 640 ? 0 : Math.random() * 20 - 10;
 
         // Scale down images for mobile if needed
         const scaleFactor = width < 640 ? 0.4 : width > 1800 ? 1.55 : 1;
