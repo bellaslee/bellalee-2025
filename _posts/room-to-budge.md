@@ -10,8 +10,6 @@ ogImage:
 words: 181
 ---
 
-![Screenshot of project home page](/img/posts/room-to-budge/1.jpeg)
-
 [View project](https://room-to-budge.web.app/)
 
 For best results, sign in with username b@a.com and password "password".

@@ -382,31 +382,16 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
             <X className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
 
-          <div
-            className="relative max-w-[95vw] max-h-[90vh] animate-in zoom-in-50 duration-300"
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              width: `${Math.min(
-                window.innerWidth * 0.95,
-                spotlightImage.width * 2
-              )}px`,
-              height: `${Math.min(
-                window.innerHeight * 0.9,
-                spotlightImage.height * 2
-              )}px`,
-            }}
-          >
-            <Image
-              src={spotlightImage.src || '/placeholder.svg'}
-              alt={spotlightImage.alt}
-              fill
-              className="object-contain"
-              sizes="95vw"
-            />
+          <Image
+            src={spotlightImage.src || '/placeholder.svg'}
+            alt={spotlightImage.alt}
+            fill
+            className="w-full h-full object-contain"
+            sizes="95vw"
+          />
 
-            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white">
-              <p>{spotlightImage.alt}</p>
-            </div>
+          <div className="absolute bottom-6 left-2 right-0 bg-black bg-opacity-70 text-white">
+            <p>{spotlightImage.alt}</p>
           </div>
         </div>
       )}

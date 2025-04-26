@@ -10,7 +10,6 @@ ogImage:
 words: 413
 ---
 
-![Screenshot of my 2022 website](/img/posts/personal-website-2022/website.png)
 [View my old website here!](https://2022.bellalee.com)
 
 ## Process

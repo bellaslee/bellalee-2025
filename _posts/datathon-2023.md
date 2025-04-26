@@ -7,11 +7,10 @@ excerpt:
 coverImage: '/img/posts/datathon-2023/thumbnail.jpeg'
 date: '2023-02-20T00:00:00.000'
 ogImage:
-    url: '/img/posts/datathon-2023/thumbnail.jpeg'
+  url: '/img/posts/datathon-2023/thumbnail.jpeg'
 words: 436
 ---
 
-![Project thumbnail](/img/posts/datathon-2023/thumbnail.jpeg)
 [View project](https://datathon-2023.netlify.app/)
 
 Our project placed 1st out of 34 teams for Best Data Analysis in the 2023 UW

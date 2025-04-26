@@ -9,8 +9,6 @@ ogImage:
 words: 1539
 ---
 
-![Banner for Umwelt](/img/posts/umwelt/thumbnail.png)
-
 [View the project website here](https://umwelt.vercel.app/) — I designed and
 implemented this website, it was really fun to do these animations with GSAP!
 

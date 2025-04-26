@@ -10,7 +10,6 @@ ogImage:
 words: 3
 ---
 
-![Screenshot of project](/img/posts/streaming-services/1.jpeg)
 [View project](https://bella-lee.shinyapps.io/info201-final-project/)
 
 ## Frameworks & Languages Used

@@ -10,8 +10,6 @@ ogImage:
 words: 4057
 ---
 
-![Project logo](/img/posts/itemize/thumbnail.jpg)
-
 ## Problem Space
 
 A kitchen is an area that is used to prepare food (“Kitchen Definition”). Though

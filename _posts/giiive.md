@@ -8,11 +8,10 @@ excerpt:
 coverImage: '/img/posts/giiive/thumbnail.jpeg'
 date: '2023-03-27T00:00:00.000'
 ogImage:
-    url: '/img/posts/giiive/thumbnail.jpeg'
+  url: '/img/posts/giiive/thumbnail.jpeg'
 words: 902
 ---
 
-![Project thumbnail](/img/posts/giiive/thumbnail.jpeg)
 [View project](https://devpost.com/software/giiive)
 
 Giiive placed 1st in the coexistence track, the track that had the most
