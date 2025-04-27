@@ -44,7 +44,7 @@ const galleryImages = [
     id: 2,
     src: '/img/posts/giiive/thumbnail.jpeg',
     alt: 'Preview image for Giiive project.',
-    link: '/blog/giiive',
+    link: '/projects/giiive',
     width: 496,
     height: 310,
   },

@@ -55,10 +55,12 @@ export default function Home() {
               </a>
             </li>
             <li>
-              <a href="https://umwelt.vercel.app/">Umwelt</a>
+              <a href="https://umwelt.vercel.app/" target="_blank">
+                Umwelt
+              </a>
             </li>
             <li>
-              <Link href="../blog/giiive">Giiive</Link>
+              <Link href="../projects/giiive">Giiive</Link>
             </li>
             <li>
               <Link href="../blog/itemize">Itemize</Link>
