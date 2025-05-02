@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 type Props = {
   title: string;
@@ -48,6 +48,7 @@ export default function ProjectInfo({
         alt={imgAlt}
         width={imgWidth}
         height={imgHeight}
+        className="w-full"
       />
     </section>
   );

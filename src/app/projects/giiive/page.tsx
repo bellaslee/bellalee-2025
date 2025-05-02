@@ -14,7 +14,7 @@ export default function Giiive() {
         <ProjectInfo
           title="Giiive"
           client="BU Catalyst Designathon"
-          type="UX Design, UX Research"
+          type="UX Design and Research"
           startYear={2023}
           imgSrc="/img/posts/giiive/thumbnail.jpeg"
           imgAlt="Thumbnail for Giiive project."

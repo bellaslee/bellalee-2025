@@ -428,7 +428,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
             sizes="95vw"
           />
 
-          <div className="absolute bottom-0 left-6 right-0 bg-black bg-opacity-70 text-white">
+          <div className="absolute bottom-0 left-0 right-0 pl-6 pb-2 bg-black bg-opacity-70 text-white">
             <p>{spotlightImage.alt}</p>
           </div>
         </div>

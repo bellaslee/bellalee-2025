@@ -25,12 +25,12 @@ const galleryImages = [
     height: 450,
   },
   {
-    id: 8,
-    src: '/img/posts/datathon-2023/thumbnail.jpeg',
-    alt: 'Preview image for datathon project.',
-    link: '/blog/datathon-2023',
+    id: 9,
+    src: '/img/posts/itemize/thumbnail.jpg',
+    alt: 'Preview image for Itemize project.',
+    link: '/projects/itemize',
     width: 400,
-    height: 250,
+    height: 225,
   },
   {
     id: 3,
@@ -47,6 +47,14 @@ const galleryImages = [
     link: '/projects/giiive',
     width: 496,
     height: 310,
+  },
+  {
+    id: 8,
+    src: '/img/posts/datathon-2023/thumbnail.jpeg',
+    alt: 'Preview image for datathon project.',
+    link: '/projects/datathon-2023',
+    width: 400,
+    height: 250,
   },
   {
     id: 1,
