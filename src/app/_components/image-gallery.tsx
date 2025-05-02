@@ -6,7 +6,6 @@ import type React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 import { X, ExternalLink, ArrowRight, Maximize } from 'lucide-react';
 
 type GalleryImage = {
@@ -298,24 +297,24 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     );
   };
 
-  //   const handleImageClick = (image: PositionedImage, e: React.MouseEvent) => {
-  //     // Only handle click if not dragging or if the drag distance was very small
-  //     if (!wasDragged) {
-  //       e.preventDefault();
-  //       if (image.link) {
-  //         if (isExternalUrl(image.link)) {
-  //           // For external links, open in a new tab
-  //           window.open(image.link, '_blank', 'noopener,noreferrer');
-  //         } else {
-  //           // For internal links, use Next.js router
-  //           router.push(image.link);
-  //         }
-  //       } else {
-  //         // If image doesn't have a link, open spotlight
-  //         setSpotlightImage(image);
-  //       }
-  //     }
-  //   };
+  const handleImageClick = (image: PositionedImage, e: React.MouseEvent) => {
+    // Only handle click if not dragging or if the drag distance was very small
+    if (!wasDragged) {
+      e.preventDefault();
+      if (image.link) {
+        if (isExternalUrl(image.link)) {
+          // For external links, open in a new tab
+          window.open(image.link, '_blank', 'noopener,noreferrer');
+        } else {
+          // For internal links, use Next.js router
+          router.push(image.link);
+        }
+      } else {
+        // If image doesn't have a link, open spotlight
+        setSpotlightImage(image);
+      }
+    }
+  };
 
   const closeSpotlight = () => {
     setSpotlightImage(null);
@@ -327,17 +326,9 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
       return <Maximize className="w-full h-full" />;
     }
     if (isExternalUrl(link)) {
-      return (
-        <a href={link}>
-          <ExternalLink className="w-full h-full" />
-        </a>
-      );
+      return <ExternalLink className="w-full h-full" />;
     }
-    return (
-      <Link href={link}>
-        <ArrowRight className="w-full h-full" />
-      </Link>
-    );
+    return <ArrowRight className="w-full h-full" />;
   };
 
   return (
@@ -350,7 +341,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
           <div
             key={image.id}
             onMouseDown={(e) => handleMouseDown(e, image.id, index)}
-            // onClick={(e) => handleImageClick(image, e)}
+            onClick={(e) => handleImageClick(image, e)}
             className={`absolute touch-none ${
               !isDragging ? 'transition-shadow' : ''
             } hover:shadow-xl ${
