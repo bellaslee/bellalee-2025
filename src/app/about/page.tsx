@@ -13,7 +13,9 @@ export default function Home() {
           </h2>
           <p>
             My dream is to make information more intuitive, accessible, and
-            enjoyable by bridging the gap between people and technology.
+            enjoyable by bridging the gap between people and technology. I'm
+            particularly interested in organizing data such that it is easy to
+            find and creating meaningful and readable visualizations.
           </p>
           <p>
             Everyone has a story to tell. I strive to understand, empathize
@@ -63,13 +65,13 @@ export default function Home() {
               <Link href="../projects/giiive">Giiive</Link>
             </li>
             <li>
-              <Link href="../blog/itemize">Itemize</Link>
+              <Link href="../projects/itemize">Itemize</Link>
             </li>
           </ul>
           <h3>Data Visualization</h3>
           <ul>
             <li>
-              <Link href="../blog/datathon-2023">
+              <Link href="../projects/datathon-2023">
                 UW Dubstech 2023 Datathon
               </Link>
             </li>
@@ -89,10 +91,11 @@ export default function Home() {
               2025)
             </li>
             <li>
-              <b>Smirk UW</b> / President (2023–2024){' '}
-              <span className="text-gray-400 text-xs">
-                Chief Design Officer (2022–2023) / Graphic Designer (2021–2022)
-              </span>
+              <b>Smirk UW</b> / President (2023–2024)
+              <ul>
+                <li>Chief Design Officer (2022–2023)</li>
+                <li>Graphic Designer (2021–2022)</li>
+              </ul>
             </li>
             <li>
               <b>Sensors, Energy, and Automation Laboratory</b> / Web

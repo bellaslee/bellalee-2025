@@ -61,6 +61,10 @@ blockquote {
   @apply mb-6;
 }
 
+ul ul {
+  @apply mb-0;
+}
+
 ol {
   @apply list-outside list-decimal pl-8 md:pl-12;
 }
