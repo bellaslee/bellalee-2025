@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Links from '@/app/_components/links';
 import CoverImage from './cover-image';
 import DateFormatter from './date-formatter';
 import ReadTime from './read-time';
@@ -27,9 +27,9 @@ export function PostPreview({
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
       <h3>
-        <Link href={`/blog/${slug}`} className="hover:underline">
+        <Links href={`/blog/${slug}`}>
           {title}
-        </Link>
+        </Links>
       </h3>
       <div className="text-lg mb-4 flex items-center">
         <DateFormatter dateString={date} />

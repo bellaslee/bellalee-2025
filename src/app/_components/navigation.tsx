@@ -1,23 +1,23 @@
-import Link from 'next/link';
+import Links from '@/app/_components/links';
 
 export default function Navigation() {
   return (
     <nav className="flex flex-col md:flex-row items-center justify-between text-center md:text-left mb-4">
       <h1>
-        <Link href="/">bellalee</Link>
+        <Links href="/">bellalee</Links>
       </h1>
       <ul>
         <li>
-          <Link href="/">home</Link>
+          <Links href="/">home</Links>
         </li>
         <li>
-          <Link href="/about">about</Link>
+          <Links href="/about">about</Links>
         </li>
         <li>
-          <Link href="/blog">blog</Link>
+          <Links href="/blog">blog</Links>
         </li>
         <li>
-            <a href="https://garden.bellalee.com">digital garden</a>
+          <Links href="https://garden.bellalee.com">digital garden</Links>
         </li>
       </ul>
     </nav>

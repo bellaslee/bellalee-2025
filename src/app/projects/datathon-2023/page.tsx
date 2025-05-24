@@ -4,6 +4,7 @@ import Container from '@/app/_components/container';
 import ProjectInfo from '@/app/_components/project-info';
 import TwoColSection from '@/app/_components/two-col-section';
 import { ExternalLink } from 'lucide-react';
+import Links from '@/app/_components/links';
 
 export default function Datathon2023() {
   return (
@@ -31,9 +32,9 @@ export default function Datathon2023() {
             2023 Datathon.
           </p>
           <p>
-            <a href="https://datathon-2023.netlify.app/">
-              View project <ExternalLink className="w-4 h-4 inline" />
-            </a>
+            <Links href="https://datathon-2023.netlify.app/">
+              View project
+            </Links>
           </p>
         </TwoColSection>
         <TwoColSection title="Solution">

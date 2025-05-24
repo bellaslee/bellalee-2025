@@ -1,6 +1,5 @@
 import Navigation from '@/app/_components/navigation';
-import Link from 'next/link';
-import Separator from '../_components/separator';
+import Links from '@/app/_components/links';
 
 export default function Home() {
   return (
@@ -24,8 +23,11 @@ export default function Home() {
           </p>
           <p>
             See a glimpse of my world in{' '}
-            <a href="https://garden.bellalee.com">my digital garden</a> or view
-            more polished works <Link href="/blog">on my blog</Link> :)
+            <Links href="https://garden.bellalee.com">my digital garden</Links>
+            or view more polished works <Links href="/blog">
+              on my blog
+            </Links>{' '}
+            :)
           </p>
           <p>
             Beyond work, I enjoy drawing, singing, fingerstyle guitar, hip-hop
@@ -62,18 +64,18 @@ export default function Home() {
               </a>
             </li>
             <li>
-              <Link href="../projects/giiive">Giiive</Link>
+              <Links href="../projects/giiive">Giiive</Links>
             </li>
             <li>
-              <Link href="../projects/itemize">Itemize</Link>
+              <Links href="../projects/itemize">Itemize</Links>
             </li>
           </ul>
           <h3>Data Visualization</h3>
           <ul>
             <li>
-              <Link href="../projects/datathon-2023">
+              <Links href="../projects/datathon-2023">
                 UW Dubstech 2023 Datathon
-              </Link>
+              </Links>
             </li>
           </ul>
         </div>

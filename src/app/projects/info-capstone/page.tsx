@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from '@/app/_styles/project-styles.module.css';
 import ProjectInfo from '@/app/_components/project-info';
 import TwoColSection from '@/app/_components/two-col-section';
+import Links from '@/app/_components/links';
 
 export default function InfoCapstone() {
   return (
@@ -34,8 +35,8 @@ export default function InfoCapstone() {
           </p>
           <p>
             By leveraging the{' '}
-            <a href="https://www.flickr.com/commons">Flickr Commons</a>, the
-            gallery showcases a broader range of historical femme
+            <Links href="https://www.flickr.com/commons">Flickr Commons</Links>,
+            the gallery showcases a broader range of historical femme
             representations in STEM. By creating dynamic public and social media
             adverts with images from the study, we encourag professionals to
             engage with the gallery on their daily commute. This approach not
@@ -50,12 +51,9 @@ export default function InfoCapstone() {
             historically marginalized in these fields.
           </p>
           <p>
-            <a
-              href="https://www.flickr.com/photos/201495836@N05/galleries/72157723349865334/"
-              target="_blank"
-            >
-              View gallery <ExternalLink className="w-4 h-4 inline" />
-            </a>
+            <Links href="https://www.flickr.com/photos/201495836@N05/galleries/72157723349865334/">
+              View gallery
+            </Links>
           </p>
         </TwoColSection>
         <section className="md:columns-2">
@@ -97,7 +95,7 @@ export default function InfoCapstone() {
             Computing was once considered a feminine endeavor due to its routine
             and mechanical nature (Ensmenger, 2015). The progression of STEM
             spaces has been much like the previous industrial revolution, where
-            machinery was developed through the lens of “modern manliness”
+            machinery was developed through the lens of "modern manliness"
             (Oldenziel, 1999, p.19). Men began to push women out of the picture
             and self identifying with pop culture images of the genius
             programmer, effectively colonizing the technology space.
@@ -105,14 +103,14 @@ export default function InfoCapstone() {
           <p>
             The culture of the industry, stemming from male-dominated college
             computer labs, makes the space unfriendly for non-male-identifying
-            people to navigate. “Tech” is glorified as “masculine” through image
+            people to navigate. "Tech" is glorified as "masculine" through image
             (Ensmenger 2015). Social media trends perpetuate these stereotypes,
             undermining the self-esteem of those who do not fit the image of a
             technologist (Rutledge, 2023).
           </p>
           <p>
             Therefore, we see a trend of low engagement of women in STEM and
-            computing — women only make up 24% of the STEM workforce (Piloto,
+            computing — women only make up 24% of the STEM workforce (Piloto,
             2023).
           </p>
           <h4>Study Findings</h4>
@@ -144,7 +142,7 @@ export default function InfoCapstone() {
             <li>
               Participants said representation would make them feel more
               confident in the space due to knowing there were people like them
-              who also made it — it's inspirational to see that people who do
+              who also made it — it's inspirational to see that people who do
               not fit into the stereotype can also succeed.
             </li>
           </ol>
@@ -158,8 +156,8 @@ export default function InfoCapstone() {
               343–359. https://doi.org/10.1037/a0037908
             </li>
             <li>
-              Ensmenger, Nathan. (2015). “Beards, Sandals, and Other Signs of
-              Rugged Individualism”: Masculine Culture within the Computing
+              Ensmenger, Nathan. (2015). "Beards, Sandals, and Other Signs of
+              Rugged Individualism": Masculine Culture within the Computing
               Professions. Osiris, 30(1). https://doi.org/10.1086/682955
             </li>
             <li>

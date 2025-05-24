@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from '@/app/_styles/project-styles.module.css';
 import ProjectInfo from '@/app/_components/project-info';
 import TwoColSection from '@/app/_components/two-col-section';
+import Links from '@/app/_components/links';
 
 export default function Giiive() {
   return (
@@ -29,12 +30,9 @@ export default function Giiive() {
             days.
           </p>
           <p>
-            <a
-              href="https://www.figma.com/proto/DgWWNKuQbQdncNsy4CyFWQ/Catalyst-2023?node-id=15-762&scaling=scale-down&page-id=15%3A711&starting-point-node-id=15%3A738"
-              target="_blank"
-            >
-              View Prototype <ExternalLink className="w-4 h-4 inline" />
-            </a>
+            <Links href="https://www.figma.com/proto/DgWWNKuQbQdncNsy4CyFWQ/Catalyst-2023?node-id=15-762&scaling=scale-down&page-id=15%3A711&starting-point-node-id=15%3A738">
+              View Prototype
+            </Links>
           </p>
         </TwoColSection>
         <TwoColSection title="Problem">

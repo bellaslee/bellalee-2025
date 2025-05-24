@@ -80,6 +80,10 @@ ul a {
   @apply text-red-400;
 }
 
+a {
+  @apply transition-colors duration-200;
+}
+
 section img {
   @apply py-2;
 }
