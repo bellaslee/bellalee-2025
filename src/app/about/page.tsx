@@ -11,10 +11,8 @@ export default function Home() {
             Hi, I'm Bella! I'm a consultant, designer, artist, and writer.
           </h2>
           <p>
-            My dream is to make information more intuitive, accessible, and
-            enjoyable by bridging the gap between people and technology. I'm
-            particularly interested in organizing data such that it is easy to
-            find and creating meaningful and readable visualizations.
+            I'm passionate about making information more intuitive, accessible,
+            and enjoyable by bridging the gap between people and technology.
           </p>
           <p>
             Everyone has a story to tell. I strive to understand, empathize
