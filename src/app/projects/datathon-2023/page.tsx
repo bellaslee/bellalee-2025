@@ -3,7 +3,6 @@ import Navigation from '@/app/_components/navigation';
 import Container from '@/app/_components/container';
 import ProjectInfo from '@/app/_components/project-info';
 import TwoColSection from '@/app/_components/two-col-section';
-import { ExternalLink } from 'lucide-react';
 import Links from '@/app/_components/links';
 
 export default function Datathon2023() {

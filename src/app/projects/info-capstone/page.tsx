@@ -1,6 +1,5 @@
 import Navigation from '@/app/_components/navigation';
 import Container from '@/app/_components/container';
-import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import styles from '@/app/_styles/project-styles.module.css';
 import ProjectInfo from '@/app/_components/project-info';

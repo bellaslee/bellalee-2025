@@ -76,6 +76,14 @@ export default function Home() {
               </Links>
             </li>
           </ul>
+          <h3>Writing</h3>
+          <ul>
+            <li>
+                <Links href="../projects/pnwgp-story">
+                    Feature story for UW Information Technology
+                </Links>
+            </li>
+          </ul>
         </div>
       </section>
       <section className="flex flex-col md:flex-row">
