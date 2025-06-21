@@ -15,26 +15,25 @@ export default function Home() {
             and enjoyable by bridging the gap between people and technology.
           </p>
           <p>
-            Everyone has a story to tell. I strive to understand, empathize
-            with, and incorporate people’s diverse voices and experiences as the
-            foundation for a good information experience.
+            Everyone has a story to tell. My goal is to understand, empathize
+            with, and amplify diverse voices and experiences — great information
+            experiences start with people.
           </p>
           <p>
             See a glimpse of my world in{' '}
             <Links href="https://garden.bellalee.com">my digital garden</Links>
-            or view more polished works <Links href="/blog">
+            or view more polished writings <Links href="/blog">
               on my blog
             </Links>{' '}
             :)
           </p>
           <p>
             Beyond work, I enjoy drawing, singing, fingerstyle guitar, hip-hop
-            dance, reading, and diving into new things, like tarot, creative
-            writing, and archaic Chinese. I take pride in my curiosity and
+            dance, reading, and creative writing. I take pride in my curiosity and
             eagerness to learn, and I hope to get to know myself, others, and
             the world better as I progress in my career. I gravitate toward
             themes of love, fate, eternity, and loss in art and philosophy.
-            Books that I've enjoyed recently include <i>The Door</i>,{' '}
+            Books that I've enjoyed recently include <i>The Things They Carried</i>,{' '}
             <i>The Count of Monte Cristo</i>, <i>Giovanni's Room</i>,{' '}
             <i>Crime and Punishment</i>, and <i>The Flowers of Buffoonery</i>.
             Some fun projects that I've worked on in the past include page art
@@ -79,9 +78,9 @@ export default function Home() {
           <h3>Writing</h3>
           <ul>
             <li>
-                <Links href="../projects/pnwgp-story">
-                    Feature story for UW Information Technology
-                </Links>
+              <Links href="../projects/pnwgp-story">
+                Feature story for UW Information Technology
+              </Links>
             </li>
           </ul>
         </div>
